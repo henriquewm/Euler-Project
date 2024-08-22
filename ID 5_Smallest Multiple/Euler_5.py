@@ -33,4 +33,4 @@ p=1
 for i in c.keys():
     p*=i**c[i]
 
-prime(8)
+print(p)
