@@ -1,11 +1,11 @@
-#This notebook is a solution to Euler problem ID 3: Largest prime factor.
-#Link: https://projecteuler.net/problem=3
+#This notebook is a solution to Euler problem ID 5: Smallest multiple.
+#Link: https://projecteuler.net/problem=5
 
 #Import libraries
 import numpy as np
 import pandas as pd
+from collections import Counter
 #-----------------------------------------------------------------------------------------------------------------------------------
-
 def prime(n):
     """Function that returns an array with prime decomposition
     of n."""
@@ -24,5 +24,13 @@ def prime(n):
     a.append(n) #if all above fails the remaining is a prime number
     return a
 
-p = prime(600851475143)
-p[-1]
+
+c=Counter()
+for i in range(1,21):
+    c |= Counter(prime(i))
+
+p=1
+for i in c.keys():
+    p*=i**c[i]
+
+prime(8)
